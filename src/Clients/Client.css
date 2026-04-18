@@ -1,0 +1,39 @@
+.client-software-name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     /* position: fixed; */
+}
+#logo-size{
+    width: 50px;
+    height: auto;
+}
+#front-search{
+    width: 240px;
+}
+/* marquee section  */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee p {
+  display: inline-block;
+  animation: scroll 11s linear infinite;
+  width: 300px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+/* search bar  */
+#search-here{
+    border: 1px solid rgb(209, 208, 208);
+    border-radius: 10px;
+    width: 300px;
+}

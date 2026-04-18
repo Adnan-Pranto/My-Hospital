@@ -1,0 +1,50 @@
+.report-title {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+
+}
+
+.report-list {
+    width: 100%;
+    margin:0px ;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.report-list:hover {
+    background-color: white;
+    border-radius: 10px;
+    border: 0.5px solid red;
+    transform: scale(1.09); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.Diagnosis-Container {
+    padding: 20px;
+    background-image: linear-gradient(180deg, rgb(255, 219, 240), rgb(213, 253, 253));
+    width: 510px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 2px 1px 8px;
+    margin-left: 300px;
+
+    /* 🔥 animation add here */
+       transform-origin: top;
+    animation: curtainDown 2s ease-out;
+}
+@keyframes curtainDown {
+    0% {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scaleY(1.05);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}

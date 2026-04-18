@@ -1,0 +1,12 @@
+@import "tailwindcss";
+.Custom-CSS{
+    padding: 0px;
+    margin: 0px;
+    display: 100vp;
+ }
+
+.open-sans{
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+} 

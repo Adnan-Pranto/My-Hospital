@@ -1,0 +1,31 @@
+#general-container {
+    margin: 9px 8px ;
+}
+
+.nab-container {
+    display: flex;
+    border-bottom: 2px solid rgb(138, 140, 138);
+    padding-bottom: 30px;
+}
+
+.main-nab-container {
+    margin-right: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0.5px solid rgb(130, 130, 130);
+    transition: transform 0.5s ease-in-out;
+}
+
+.front-nab {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.main-nab-container:hover {
+    background-color: rgb(2, 11, 141);
+    color: white;
+    padding: 13px;
+    transform: scale(1.1) translateY(4px);
+}

@@ -1,0 +1,28 @@
+.Sub-heading {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    background-image: linear-gradient(180deg, rgb(249, 255, 241), rgb(255, 251, 219), rgb(255, 218, 218));
+    box-shadow: 0px 2px rgb(102, 102, 102);
+}
+
+.sun-heading-container {
+    /* border-bottom: 2px solid rgb(131, 131, 131); */
+
+}
+
+.sub-navigation {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 6px;
+    transition: transform 0.2s ease;
+    transform-origin: center;
+}
+
+.sub-navigation:hover {
+    transform: scale(1.09);
+    border-radius: 10px;
+    background-color: #fff;
+    border: 0.2px solid black;
+  
+}
