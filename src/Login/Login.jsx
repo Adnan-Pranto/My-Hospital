@@ -1,81 +1,105 @@
-import React, { useEffect, useState } from "react";
-import "./Login.css";
+import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { BiSolidHide } from "react-icons/bi";
-import { BiShowAlt } from "react-icons/bi";
+import { BiSolidHide, BiShowAlt } from "react-icons/bi";
+import "./Login.css";
+
+
+import logo from "/src/assets/plus4.webp";
+
 function Login() {
-    // passwoard section 
-    const [name, setName] = useState("");
     const navigate = useNavigate();
+
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
-    const isPasswordValid = password.length >= 3;
-    const isNameValid = name.match('abc');
-const isFormValid = isPasswordValid && isNameValid;
-    // time & date section 
-    const [time, setTime] = useState(
-        new Date().toLocaleTimeString('bn-BD').slice(0, 8)
-    );
 
-    const [day, setDay] = useState(
-        new Date().toLocaleDateString('bn-BD', { weekday: 'long' })
-    );
+    const isNameValid = useMemo(() => name.match(/abc/i) !== null, [name]);
+    const isPasswordValid = password.length >= 3;
+    const isFormValid = isNameValid && isPasswordValid;
+
+    // Time & Date
+    const [time, setTime] = useState("");
+    const [day, setDay] = useState("");
 
     useEffect(() => {
-        const id = setInterval(() => {
+        const updateDateTime = () => {
             const now = new Date();
-
-            setTime(now.toLocaleTimeString('bn-BD').slice(0, 8));
+            setTime(now.toLocaleTimeString('bn-BD', { hour: '2-digit', minute: '2-digit', second: '2-digit' }).slice(0, 8));
             setDay(now.toLocaleDateString('bn-BD', { weekday: 'long' }));
+        };
 
-        }, 1000);
-
-        return () => clearInterval(id);
+        updateDateTime();
+        const interval = setInterval(updateDateTime, 1000);
+        return () => clearInterval(interval);
     }, []);
-    return (
-        <section className="Custom-CSS">
-            <div className="text-center p-4 ">
-                <img src="" alt="" />
-                <p className="font-extrabold text-8xl text-rose-500" >{day} {time}</p>
-            </div>
-            <div className="container">
 
+    return (
+        <section className="login-section">
+
+            {/* Background Image */}
+            <div className="overlay"></div>
+
+            {/* Header - Time & Day */}
+            <div className="text-center p-4 md:p-6 relative z-10">
+                <p className="font-extrabold text-6xl md:text-7xl lg:text-8xl text-blue-600 tracking-tight">
+                    {day} {time}
+                </p>
+            </div>
+
+
+
+            {/* Login Form */}
+            <div className="flex-1 flex items-center justify-center px-4 py-6 relative z-10">
                 <div className="form-box">
                     <h2 className="text-center text-3xl p-2 font-[700]">Login Your Account</h2>
-                    <p className="text-center text-gray-700">To sign in Our App Follow this</p>
-                    <input className="login-input"
-                        type="name"
+                    <p className="text-center text-gray-700 mb-6">
+                        Your Health, Our Priority
+                    </p>
+
+                    <input
+                        className="login-input"
+                        type="text"
                         placeholder="Enter User ID"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
 
-                    {/* password section */}
                     <div className="password-box relative flex items-center">
-                        <input className="login-input"
+                        <input
+                            className="login-input pr-12"
                             type={showPassword ? "text" : "password"}
                             placeholder="Enter Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <span className="absolute right-2" onClick={() => setShowPassword(!showPassword)}>
+                        <span
+                            className="absolute right-4 cursor-pointer"
+                            onClick={() => setShowPassword(!showPassword)}
+                        >
                             {showPassword ? <BiSolidHide /> : <BiShowAlt />}
                         </span>
                     </div>
 
                     <button
-  disabled={!isFormValid}
-  className={isFormValid ? "active-btn" : "disabled-btn"}
-  onClick={() => navigate("/dashboard")}
->
-  Submit
-</button>
+                        disabled={!isFormValid}
+                        className={`w-[96%] py-3 mt-4 text-lg font-semibold rounded-xl transition-all duration-300 ${isFormValid ? "active-btn" : "disabled-btn"
+                            }`}
+                        onClick={() => navigate("/dashboard")}
+                    >
+                        Submit
+                    </button>
+                </div>
+            </div>
+            {/* Hospital Logo + Marquee */}
+            <div className="flex items-center justify-center gap-3 p-2 relative z-10">
+                <img id="logo-size" src={logo} alt="Hospital Care" />
+                <div className="marquee">
+                    <p className="text-white font-extrabold">
+                        Dream Hospital, Tangail — Your Health, Our Priority 🩺
+                    </p>
                 </div>
             </div>
         </section>
-
-
-
     );
 }
 

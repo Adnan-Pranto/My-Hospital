@@ -13,13 +13,31 @@ function Diagnosis() {
           <ul className='Diagnosis_list'>
             <li className="report-list">
               <Link className="report-title" to="/pathhade/diagnosis/test">
-                Diagnosis Test Sale
+                D. Diagnosis Test Sale
               </Link>
             </li>
-            <li className='report-list'><a className='report-title'>Search of Diagnosis Test Sale</a> </li>
-            <li className='report-list'><a className='report-title'>Search of Diagnosis Test Sale On Operator</a> </li>
+            <li className='report-list'>
+              <Link className="report-title" to="/SearchAndEdit/Test">
+                Search of Diagnosis Test Sale
+              </Link>
+              </li>
+            <li className='report-list'>
+              <Link className="report-title" to=" ">
+               Search of Diagnosis Test Sale On Operator
+              </Link>
+              </li>
+            <li className='report-list'>
+              <Link className="report-title" to="/Due-Collection">
+               D. Diagnosis Due Collection
+              </Link>
+              </li>
+              <li className='report-list'>
+              <Link className="report-title" to="/ErrorText">
+              testttttttttttttt
+              </Link>
+              </li>
             <li className='report-list'><a className='report-title'>Barcode Generate For Tube</a></li>
-            <li className='report-list'><a className='report-title'>Diagnosis Due Collection</a></li>
+            
             <li className='report-list'><a className='report-title'>Search of Diagnosis Due Collection</a></li>
             <li className='report-list'><a className='report-title'>Diagnosis Data Set Recovery</a></li>
             <li className='report-list'><a className='report-title'>Sale Diagnosis Test Return</a></li>

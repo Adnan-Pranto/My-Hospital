@@ -15,7 +15,7 @@ function Client() {
     }, []);
 
     return (
-        <section  className='Custom-CSS client-software-name border-1 rounded-2xl border-b-mauve-200'>
+        <section className='Custom-CSS client-software-name border-1 rounded-2xl border-b-mauve-200'>
             {/* logo & Client name section  */}
             <div className='flex items-center'>
                 <img id='logo-size' src={logo} alt="Hospital Care" />
@@ -32,7 +32,7 @@ function Client() {
                 />
                 <input className="font-extrabold text-xl text-rose-500" type="time" value={time} readOnly />
             </div>
-{/* Search option  */}
+            {/* Search option  */}
             <div className='flex p-2 items-center justify-center' id='search-here'>
                 <input
                     type="search"
