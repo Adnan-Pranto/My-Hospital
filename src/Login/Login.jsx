@@ -13,8 +13,8 @@ function Login() {
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
-    const isNameValid = useMemo(() => name.match(/abc/i) !== null, [name]);
-    const isPasswordValid = password.length >= 3;
+    const isNameValid = useMemo(() => name.match(/a/i) !== null, [name]);
+    const isPasswordValid = password.length >= 1;
     const isFormValid = isNameValid && isPasswordValid;
 
     // Time & Date
